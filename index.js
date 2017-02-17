@@ -5,6 +5,8 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv').load({silent: true})
 var app = express()
 var router = require('./services/router')
+const bcrypt = require('bcrypt-nodejs')
+
 
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:hitlistReactNative/hitlistReactNative')
 
