@@ -6,14 +6,13 @@ const dotenv = require('dotenv').load({silent: true})
 var app = express()
 var router = require('./services/router')
 
-mongoose.connect('mongodb://localhost:hitlistReactNative/hitlistReactNative')
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:hitlistReactNative/hitlistReactNative')
 
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use('/v1', router)
 
 var PORT  = process.env.PORT || 3000
-var HOST = process.env.MONGODB || '127.0.0.1'
 
-console.log('Listening on: ', HOST, PORT);
-app.listen(PORT, HOST)
+console.log('Listening on: ', PORT);
+app.listen(PORT)
