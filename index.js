@@ -8,7 +8,7 @@ var router = require('./services/router')
 const bcrypt = require('bcrypt-nodejs')
 
 
-mongoose.connect(process.env.MONGODB_UR || 'mongodb://localhost:hitlistReactNative/hitlistReactNative')
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:hitlistReactNative/hitlistReactNative')
 
 app.use(morgan('combined'))
 app.use(bodyParser.json())
