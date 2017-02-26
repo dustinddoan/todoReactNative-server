@@ -5,7 +5,7 @@ exports.create = function(req, res, next) {
   var _id = user.todos[count -1]._id
   user.save(function(err) {
     if(err) {return next(err)}
-    res.json({todos: {text: text, _id: _id}})
+    res.json({todo: {text: text, _id: _id}})
   })
 }
 
@@ -17,7 +17,7 @@ exports.destroy = function(req, res, next) {
   var user = req.user
   var todo_id = req.params.todo_id
   user.todos = user.todos.filter((todo) => {
-    if(todo_id === id) {
+    if(todo._id === todo_id) {
       return false
     }
     return true
