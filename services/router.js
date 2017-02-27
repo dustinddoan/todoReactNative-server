@@ -16,9 +16,6 @@ router.route('/signup')
 router.route('/signin')
   .post([requireLogin, AuthenticationController.signin])
 
-router.route('/search')
-  .post(SearchController.search)
-
 router.route('/users/:user_id/todos')
   .post(requireAuth, TodosController.create)
   .get(requireAuth, TodosController.index)
